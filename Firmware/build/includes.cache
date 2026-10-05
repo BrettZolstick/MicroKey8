@@ -1,0 +1,56 @@
+[
+  {
+    "added_include_path": "/home/ethan/.arduino15/packages/arduino/hardware/avr/1.8.8/cores/arduino"
+  },
+  {
+    "added_include_path": "/home/ethan/.arduino15/packages/arduino/hardware/avr/1.8.8/variants/leonardo"
+  },
+  {
+    "compile": {
+      "source_path": "/home/ethan/projects/MicroKey8/build/sketch/MicroKey8.ino.cpp.merged",
+      "depfile_path": "/home/ethan/projects/MicroKey8/build/sketch/MicroKey8.ino.cpp.merged.libsdetect.d"
+    },
+    "compile_task": {
+      "args": [
+        "/home/ethan/.arduino15/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/avr-g++",
+        "-c",
+        "-g",
+        "-Os",
+        "-w",
+        "-std=gnu++11",
+        "-fpermissive",
+        "-fno-exceptions",
+        "-ffunction-sections",
+        "-fdata-sections",
+        "-fno-threadsafe-statics",
+        "-Wno-error=narrowing",
+        "-flto",
+        "-w",
+        "-x",
+        "c++",
+        "-E",
+        "-CC",
+        "-mmcu=atmega32u4",
+        "-DF_CPU=16000000L",
+        "-DARDUINO=10607",
+        "-DARDUINO_AVR_LEONARDO",
+        "-DARDUINO_ARCH_AVR",
+        "-DUSB_VID=0x2341",
+        "-DUSB_PID=0x8036",
+        "-DUSB_MANUFACTURER=\"Unknown\"",
+        "-DUSB_PRODUCT=\"Arduino Leonardo\"",
+        "-I/home/ethan/.arduino15/packages/arduino/hardware/avr/1.8.8/cores/arduino",
+        "-I/home/ethan/.arduino15/packages/arduino/hardware/avr/1.8.8/variants/leonardo",
+        "/home/ethan/projects/MicroKey8/build/sketch/MicroKey8.ino.cpp.merged",
+        "-o",
+        "/dev/null",
+        "-MMD",
+        "-MF",
+        "/home/ethan/projects/MicroKey8/build/sketch/MicroKey8.ino.cpp.merged.libsdetect.d"
+      ]
+    }
+  },
+  {
+    "missing_include_h": ""
+  }
+]
