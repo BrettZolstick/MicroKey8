@@ -50,6 +50,7 @@ void setup() {
 
 
 unsigned long debounceMicros = 2000;
+char previousKey;
 
 struct Switch {
   byte pin;
@@ -103,7 +104,14 @@ void updateSwitchState(Switch &sw){
   // otherwise, send key press
   sw.switchStateChangeTimestamp = micros();
   if (sw.switchState){
+    // don't send a press if not in full alt order
+    if (sw.key == 'a' && (previousKey == 'a' || previousKey == 's')){return;}
+    if (sw.key == 's' && (previousKey == 's' || previousKey == 'd')){return;}
+    if (sw.key == 'd' && (previousKey == 'd' || previousKey == 'a')){return;}
+
+    // otherwise, send the key press
     Keyboard.press(sw.key);
+    previousKey = sw.key;
   }else{
     Keyboard.release(sw.key);
   }
