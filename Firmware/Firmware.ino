@@ -50,6 +50,7 @@ void setup() {
 
 
 unsigned long debounceMicros = 2000;
+unsigned long reboundMillis = 40;
 
 struct Switch {
   byte pin;
@@ -63,6 +64,7 @@ struct Switch {
   bool previousSwitchState;
 
   unsigned long switchStateChangeTimestamp;
+  unsigned long lastClickTimestamp;
 };
 void readPins(Switch &sw);
 void getSwitchState(Switch &sw);
@@ -103,8 +105,13 @@ void updateSwitchState(Switch &sw){
   // otherwise, send key press
   sw.switchStateChangeTimestamp = micros();
   if (sw.switchState){
+    sw.lastClickTimestamp = millis();
     Keyboard.press(sw.key);
   }else{
+    // exit if during the anti-rebound timeframe
+    if ((millis() - sw.lastClickTimestamp) < reboundMillis ) {
+      return;
+    }
     Keyboard.release(sw.key);
   }
 
